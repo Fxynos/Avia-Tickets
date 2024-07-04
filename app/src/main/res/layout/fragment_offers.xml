@@ -15,11 +15,11 @@
         <Space android:layout_width="wrap_content" android:layout_height="24dp"/>
 
         <TextView
+            style="@style/Title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:textSize="@dimen/title_1"
             android:text="@string/searching_cheap_tickets" />
 
         <Space android:layout_width="wrap_content" android:layout_height="40dp"/>
@@ -57,9 +57,9 @@
                     android:padding="16dp">
 
                     <TextView
+                        style="@style/ButtonText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/button_text_1"
                         android:textColor="@color/grey_6"
                         android:text="@string/input_hint_from"/>
 
@@ -70,9 +70,9 @@
                         android:background="@color/grey_5"/>
 
                     <TextView
+                        style="@style/ButtonText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/button_text_1"
                         android:textColor="@color/grey_6"
                         android:text="@string/input_hint_to"/>
 
@@ -87,10 +87,10 @@
         <Space android:layout_width="wrap_content" android:layout_height="40dp"/>
 
         <TextView
+            style="@style/Title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:textSize="@dimen/title_1"
             android:text="@string/title_offers" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -101,6 +101,7 @@
             tools:listitem="@layout/item_offer"/>
 
         <Button
+            style="@style/ButtonText"
             android:id="@+id/show_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,9 +112,9 @@
         <Space android:layout_width="wrap_content" android:layout_height="32dp"/>
 
         <TextView
+            style="@style/Title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/title_1"
             android:text="@string/greeting"
             android:textColor="@color/grey_3" />
 

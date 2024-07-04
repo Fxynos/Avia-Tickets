@@ -22,21 +22,21 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        style="@style/Title3"
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
-        android:textSize="@dimen/title_3"
         android:singleLine="true"
         android:ellipsize="marquee"
         tools:text="Die Antwood"/>
 
     <TextView
+        style="@style/Text2"
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:textSize="@dimen/text_2"
         android:singleLine="true"
         android:ellipsize="marquee"
         tools:text="Будапешт"/>
@@ -55,10 +55,10 @@
             app:tint="@color/grey_6"/>
 
         <TextView
+            style="@style/Text2"
             android:id="@+id/cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_2"
             tools:text="от 22 264 ₽"/>
 
     </LinearLayout>

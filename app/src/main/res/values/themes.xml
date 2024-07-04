@@ -12,6 +12,7 @@
         <item name="android:windowBackground">?attr/colorOnPrimary</item>
         <item name="android:statusBarColor">?android:attr/windowBackground</item>
         <!-- Style -->
+        <item name="android:fontFamily">@font/sf_pro_display</item>
         <item name="materialButtonStyle">@style/ButtonStyle</item>
     </style>
 </resources>
