@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AviaTickets</string>
+    <string name="searching_cheap_tickets">Поиск дешевых\nавиабилетов</string>
+    <string name="input_hint_from">Откуда - Москва</string>
+    <string name="input_hint_to">Куда - Турция</string>
+    <string name="title_offers">Музыкально отлететь</string>
+    <string name="min_cost">от %1$d ₽</string>
 </resources>
