@@ -11,5 +11,7 @@
         <!-- System -->
         <item name="android:windowBackground">?attr/colorOnPrimary</item>
         <item name="android:statusBarColor">?android:attr/windowBackground</item>
+        <!-- Style -->
+        <item name="materialButtonStyle">@style/ButtonStyle</item>
     </style>
 </resources>

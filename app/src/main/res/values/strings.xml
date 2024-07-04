@@ -4,5 +4,7 @@
     <string name="input_hint_from">Откуда - Москва</string>
     <string name="input_hint_to">Куда - Турция</string>
     <string name="title_offers">Музыкально отлететь</string>
-    <string name="min_cost">от %1$d ₽</string>
+    <string name="min_cost">от %1$d %2$d ₽</string>
+    <string name="button_show_all_destinations">Показать все места</string>
+    <string name="greeting">Ваш первый раз</string>
 </resources>
