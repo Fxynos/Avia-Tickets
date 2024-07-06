@@ -1,6 +1,6 @@
 package com.vl.aviatickets.domain.entity
 
-class Route(
+data class Route(
     val departureCity: String,
     val arrivalCity: String
 )
