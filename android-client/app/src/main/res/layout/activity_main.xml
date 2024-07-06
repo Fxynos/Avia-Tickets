@@ -29,6 +29,7 @@
         app:backgroundTint="?android:attr/windowBackground"
         app:menu="@menu/global"
         app:labelVisibilityMode="labeled"
+        app:itemActiveIndicatorStyle="@null"
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:itemTextAppearanceActive="@style/TabText"
         app:itemTextAppearanceInactive="@style/TabText"
