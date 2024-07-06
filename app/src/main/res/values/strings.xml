@@ -8,4 +8,9 @@
     <string name="button_show_all_destinations">Показать все места</string>
     <string name="greeting">Ваш первый раз</string>
     <string name="unavailable">Недоступно</string>
+    <string name="aviatickets">Авиабилеты</string>
+    <string name="hotels">Отели</string>
+    <string name="shorter">Короче</string>
+    <string name="profile">Профиль</string>
+    <string name="subscriptions">Подписки</string>
 </resources>

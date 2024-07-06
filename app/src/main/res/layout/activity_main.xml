@@ -16,9 +16,23 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_global" />
 
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dividerColor="@color/grey_1" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="64dp"
+        app:elevation="0dp"
+        app:backgroundTint="?android:attr/windowBackground"
+        app:menu="@menu/global"
+        app:labelVisibilityMode="labeled"
+        app:itemTextAppearanceActiveBoldEnabled="false"
+        app:itemTextAppearanceActive="@style/TabText"
+        app:itemTextAppearanceInactive="@style/TabText"
+        app:itemIconTint="@color/item_menu"
+        app:itemTextColor="@color/item_menu" />
 
 </LinearLayout>
