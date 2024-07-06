@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_global"
+    app:startDestination="@id/nav_tickets">
+
+    <!-- Global destinations -->
+
+    <include app:graph="@navigation/nav_tickets"/>
+
+    <!-- TODO replace stubs with actual graphs -->
+    <fragment android:id="@+id/dest_hotels"
+        tools:layout="@layout/fragment_stub"/>
+
+    <fragment android:id="@+id/dest_shorter"
+        tools:layout="@layout/fragment_stub"/>
+
+    <fragment android:id="@+id/dest_subscriptions"
+        tools:layout="@layout/fragment_stub"/>
+
+    <fragment android:id="@+id/dest_profile"
+        tools:layout="@layout/fragment_stub"/>
+
+    <!-- Global actions -->
+
+    <action android:id="@+id/action_global_tickets"
+        app:destination="@id/nav_tickets"/>
+
+    <action android:id="@+id/action_global_hotels"
+        app:destination="@id/dest_hotels"/>
+
+    <action android:id="@+id/action_global_shorter"
+        app:destination="@id/dest_shorter"/>
+
+    <action android:id="@+id/action_global_subscriptions"
+        app:destination="@id/dest_subscriptions"/>
+
+    <action android:id="@+id/action_global_profile"
+        app:destination="@id/dest_profile"/>
+
+</navigation>

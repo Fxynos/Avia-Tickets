@@ -7,4 +7,5 @@
     <string name="min_cost">от %1$d %2$d ₽</string>
     <string name="button_show_all_destinations">Показать все места</string>
     <string name="greeting">Ваш первый раз</string>
+    <string name="unavailable">Недоступно</string>
 </resources>
