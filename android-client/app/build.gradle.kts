@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -39,6 +41,10 @@ dependencies {
     /* Modules */
     implementation(project(":data"))
     implementation(project(":domain"))
+
+    /* Hilt */
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
 
     /* Navigation */
     implementation(libs.navigation.fragment)
