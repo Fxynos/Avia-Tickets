@@ -15,7 +15,12 @@ class OffersRecyclerViewAdapter(
     private val context: Context
 ): RecyclerView.Adapter<OffersRecyclerViewAdapter.ViewHolder>() {
 
+    private var clickListener: OnItemClickListener<Offer>? = null
     var items: List<Offer?> = emptyList()
+
+    fun setOnItemClickListener(listener: OnItemClickListener<Offer>?) {
+        this.clickListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         ItemOfferBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -28,6 +33,11 @@ class OffersRecyclerViewAdapter(
     inner class ViewHolder(
         private val binding: ItemOfferBinding
     ): RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener { onClick() }
+        }
+
         /**
          * @param offer null if loading (shimmer will be shown)
          */
@@ -51,6 +61,13 @@ class OffersRecyclerViewAdapter(
                     } else append(offer.price)
                 }.toString())
             }
+        }
+
+        private fun onClick() {
+            val position = adapterPosition
+            val item = items[position]
+            if (item != null)
+                clickListener?.onClick(item, position)
         }
     }
 }

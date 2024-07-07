@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.FragmentOffersBinding
+import com.vl.aviatickets.domain.entity.Offer
 import com.vl.aviatickets.ui.adapter.OffersRecyclerViewAdapter
 import com.vl.aviatickets.ui.viewmodel.OffersViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +47,10 @@ class AviaTicketsOffersFragment: Fragment() {
                 viewModel.setDepartureTown(binding.inputFrom.text.toString())
                 showSearchBottomSheet()
             }
+        }
+
+        adapter.setOnItemClickListener { item, _ ->
+            Toast.makeText(requireContext(), "Offer#${item.id} pressed", Toast.LENGTH_SHORT).show()
         }
 
         lifecycleScope.launch {

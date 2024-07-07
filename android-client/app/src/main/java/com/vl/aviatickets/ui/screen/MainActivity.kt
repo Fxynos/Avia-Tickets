@@ -38,7 +38,7 @@ class MainActivity: AppCompatActivity() {
             R.id.item_subscriptions -> R.id.action_global_subscriptions
             R.id.item_profile -> R.id.action_global_profile
             else -> throw RuntimeException() // unreachable
-        })
+        }) // TODO update selected item on controller navigate up
         return true
     }
 }
