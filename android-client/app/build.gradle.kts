@@ -59,6 +59,9 @@ dependencies {
     /* Coil (Asynchronous images loading on UI-side) */
     implementation(libs.coil.kt)
 
+    /* Shimmer */
+    implementation(libs.shimmer)
+
     /* Android */
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

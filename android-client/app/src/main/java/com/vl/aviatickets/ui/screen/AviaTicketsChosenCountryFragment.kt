@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.vl.aviatickets.databinding.FragmentStubBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AviaTicketsChosenCountryFragment: Fragment() {
 
     private lateinit var binding: FragmentStubBinding

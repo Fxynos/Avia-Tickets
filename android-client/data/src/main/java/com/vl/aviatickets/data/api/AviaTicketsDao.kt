@@ -28,7 +28,7 @@ object AviaTicketsDao: OffersRepository, TicketsRepository, TicketsOffersReposit
 
     override fun getAllOffers(): List<Offer> =
         api.getOffers().handle().offers.map {
-            Offer(it.id, it.town, it.price.value, it.imageUrl)
+            Offer(it.id, it.title, it.town, it.price.value, it.imageUrl)
         }
 
     override fun searchTickets(route: Route): List<Ticket> =

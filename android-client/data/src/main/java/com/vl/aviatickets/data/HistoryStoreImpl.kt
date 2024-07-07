@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
 
 private const val PREFERENCES_FILE = "cache"
 
-private val KEY_DEPARTURE_CITY = stringPreferencesKey("departure_city")
-private val KEY_ARRIVAL_CITIES = stringSetPreferencesKey("arrival_cities")
+private val KEY_DEPARTURE_TOWN = stringPreferencesKey("departure_towns")
+private val KEY_ARRIVAL_TOWNS = stringSetPreferencesKey("arrival_towns")
 private val Context.dataStore by preferencesDataStore(PREFERENCES_FILE)
 
 class HistoryStoreImpl(private val context: Context): HistoryStore {
@@ -29,29 +29,29 @@ class HistoryStoreImpl(private val context: Context): HistoryStore {
     private val scope = CoroutineScope(Dispatchers.IO)
     private val cacheState: StateFlow<CacheState> = dataStore.data.map { prefs ->
         CacheState.Present(
-            departureCity = prefs[KEY_DEPARTURE_CITY],
-            arrivalCities = prefs[KEY_ARRIVAL_CITIES]?.toList()
+            departureTown = prefs[KEY_DEPARTURE_TOWN],
+            arrivalTowns = prefs[KEY_ARRIVAL_TOWNS]?.toList()
         )
     }.stateIn(scope, SharingStarted.Eagerly, CacheState.Loading)
 
-    override var lastDepartureCity: String?
-        get() = (cacheState.value as? CacheState.Present)?.departureCity
+    override var lastDepartureTown: String?
+        get() = (cacheState.value as? CacheState.Present)?.departureTown
         set(value) {
             editPreferences {
                 if (value == null)
-                    it.remove(KEY_DEPARTURE_CITY)
+                    it.remove(KEY_DEPARTURE_TOWN)
                 else
-                    it[KEY_DEPARTURE_CITY] = value
+                    it[KEY_DEPARTURE_TOWN] = value
             }
         }
-    override var lastArrivalCities: List<String>?
-        get() = (cacheState.value as? CacheState.Present)?.arrivalCities
+    override var lastArrivalTowns: List<String>?
+        get() = (cacheState.value as? CacheState.Present)?.arrivalTowns
         set(value) {
             editPreferences {
                 if (value == null)
-                    it.remove(KEY_ARRIVAL_CITIES)
+                    it.remove(KEY_ARRIVAL_TOWNS)
                 else
-                    it[KEY_ARRIVAL_CITIES] = value.toSet()
+                    it[KEY_ARRIVAL_TOWNS] = value.toSet()
             }
         }
 
@@ -61,8 +61,8 @@ class HistoryStoreImpl(private val context: Context): HistoryStore {
         }
     }
 
-    private interface CacheState {
-        object Loading: CacheState
-        class Present(val departureCity: String?, val arrivalCities: List<String>?): CacheState
+    private sealed interface CacheState {
+        data object Loading: CacheState
+        class Present(val departureTown: String?, val arrivalTowns: List<String>?): CacheState
     }
 }

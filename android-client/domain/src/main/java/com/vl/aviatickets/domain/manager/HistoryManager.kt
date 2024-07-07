@@ -7,20 +7,20 @@ class HistoryManager(
     private val cache: HistoryStore,
     private val maxCapacity: Int
 ) {
-    val lastDepartureCity by cache::lastDepartureCity
-    val lastArrivalCities by cache::lastArrivalCities
+    val lastDepartureTown by cache::lastDepartureTown
+    val lastArrivalTowns by cache::lastArrivalTowns
 
-    fun saveDepartureCity(city: String) {
-        cache.lastDepartureCity = city
+    fun saveDepartureTown(town: String) {
+        cache.lastDepartureTown = town
     }
 
-    fun saveArrivalCity(city: String) {
-        val history = LinkedList(cache.lastArrivalCities ?: emptyList())
-        history.add(city)
+    fun saveArrivalTown(town: String) {
+        val history = LinkedList(cache.lastArrivalTowns ?: emptyList())
+        history.add(town)
 
         while (history.size > maxCapacity)
             history.removeFirst()
 
-        cache.lastArrivalCities = history
+        cache.lastArrivalTowns = history
     }
 }

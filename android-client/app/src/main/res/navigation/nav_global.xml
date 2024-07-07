@@ -11,15 +11,19 @@
 
     <!-- TODO replace stubs with actual graphs -->
     <fragment android:id="@+id/dest_hotels"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
         tools:layout="@layout/fragment_stub"/>
 
     <fragment android:id="@+id/dest_shorter"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
         tools:layout="@layout/fragment_stub"/>
 
     <fragment android:id="@+id/dest_subscriptions"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
         tools:layout="@layout/fragment_stub"/>
 
     <fragment android:id="@+id/dest_profile"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
         tools:layout="@layout/fragment_stub"/>
 
     <!-- Global actions -->

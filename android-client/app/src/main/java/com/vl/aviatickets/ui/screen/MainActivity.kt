@@ -7,7 +7,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

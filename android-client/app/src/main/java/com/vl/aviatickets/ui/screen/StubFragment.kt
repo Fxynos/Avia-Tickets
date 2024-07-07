@@ -9,16 +9,10 @@ import com.vl.aviatickets.databinding.FragmentStubBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AviaTicketsSearchFragment: Fragment() {
-
-    private lateinit var binding: FragmentStubBinding
-
+class StubFragment: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
-        parent: ViewGroup?,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentStubBinding.inflate(inflater, parent, false)
-        return binding.root
-    }
+    ): View = FragmentStubBinding.inflate(inflater, container, false).root
 }

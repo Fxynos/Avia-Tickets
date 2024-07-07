@@ -13,6 +13,7 @@ class MockAviaTicketsController {
             {
               "id": 1,
               "title": "Die Antwoord",
+              "image_url": "https://i1.sndcdn.com/artworks-nbXEtIsuHFab90iU-mPzLmw-t500x500.jpg",
               "town": "Будапешт",
               "price": {
                 "value": 5000
@@ -21,6 +22,7 @@ class MockAviaTicketsController {
             {
               "id": 2,
               "title": "Socrat&Lera",
+              "image_url": "https://spb.afishagoroda.ru/storage/media/Events/31351/images/204905/conversions/30ed39029c493404df7f53f45903de23-large-x2.jpg",
               "town": "Санкт-Петербург",
               "price": {
                 "value": 1999
@@ -29,6 +31,7 @@ class MockAviaTicketsController {
             {
               "id": 3,
               "title": "Лампабикт",
+              "image_url": "https://rock63.ru/sites/default/files/afisha/2023/12/01-lampabikt.jpg",
               "town": "Москва",
               "price": {
                 "value": 2390
@@ -36,7 +39,9 @@ class MockAviaTicketsController {
             }
           ]
         }
-    """.trimIndent())
+    """.trimIndent()).also {
+        Thread.sleep(3000) // imitate delay to show shimmer
+    }
 
     @GetMapping("/tickets_offers")
     fun getTicketsOffers() = ResponseEntity.ok("""
