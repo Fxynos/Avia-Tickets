@@ -1,9 +1,9 @@
 package com.vl.aviatickets.ui.hilt
 
 import android.content.Context
-import com.vl.aviatickets.data.DataStoreHistoryCache
+import com.vl.aviatickets.data.HistoryStoreImpl
 import com.vl.aviatickets.data.api.AviaTicketsDao
-import com.vl.aviatickets.domain.boundary.HistoryCache
+import com.vl.aviatickets.domain.boundary.HistoryStore
 import com.vl.aviatickets.domain.boundary.OffersRepository
 import com.vl.aviatickets.domain.boundary.TicketsOffersRepository
 import com.vl.aviatickets.domain.boundary.TicketsRepository
@@ -23,27 +23,44 @@ private const val HISTORY_MAX_CAPACITY = 5 // arrival cities' history
 @Module
 @InstallIn(FragmentComponent::class)
 abstract class DependencyHolder {
+    companion object {
+        /* Use Case */
 
-    /* Use Case */
+        @Provides
+        @FragmentScoped
+        fun provideHistoryManager(cache: HistoryStore) =
+            HistoryManager(cache, HISTORY_MAX_CAPACITY)
 
-    @Provides
-    @FragmentScoped
-    fun provideHistoryManager(cache: HistoryCache<String>) =
-        HistoryManager(cache, HISTORY_MAX_CAPACITY)
+        @Provides
+        @FragmentScoped
+        fun provideOffersManager(offersRepository: OffersRepository) =
+            OffersManager(offersRepository)
 
-    @Provides
-    @FragmentScoped
-    fun provideOffersManager(offersRepository: OffersRepository) =
-        OffersManager(offersRepository)
+        @Provides
+        @FragmentScoped
+        fun provideTicketsManager(
+            ticketsRepository: TicketsRepository,
+            ticketsOffersRepository: TicketsOffersRepository
+        ) = TicketsManager(ticketsRepository, ticketsOffersRepository)
 
-    @Provides
-    @FragmentScoped
-    fun provideOffersManager(
-        ticketsRepository: TicketsRepository,
-        ticketsOffersRepository: TicketsOffersRepository
-    ) = TicketsManager(ticketsRepository, ticketsOffersRepository)
+        /* Data Model */
+
+        @Provides
+        @FragmentScoped
+        fun provideAviaTicketsDao() =
+            AviaTicketsDao
+
+        @Provides
+        @FragmentScoped
+        fun provideHistoryStoreImpl(@ApplicationContext context: Context) =
+            HistoryStoreImpl(context)
+    }
 
     /* Boundary Interface */
+
+    @Binds
+    @FragmentScoped
+    abstract fun bindHistoryStore(historyStoreImpl: HistoryStoreImpl): HistoryStore
 
     @Binds
     @FragmentScoped
@@ -56,15 +73,4 @@ abstract class DependencyHolder {
     @Binds
     @FragmentScoped
     abstract fun bindTicketsOffersRepository(aviaTicketsDao: AviaTicketsDao): TicketsOffersRepository
-
-    @Provides
-    @FragmentScoped
-    fun provideHistoryCache(@ApplicationContext context: Context): HistoryCache<String> =
-        DataStoreHistoryCache(context)
-
-    /* Data layer */
-
-    @Provides
-    @FragmentScoped
-    fun provideAviaTicketsDao(@ApplicationContext context: Context) = AviaTicketsDao
 }

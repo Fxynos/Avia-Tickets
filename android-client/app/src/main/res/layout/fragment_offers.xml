@@ -32,14 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:background="@drawable/shape_rounded_1"
+            android:background="@drawable/shape_rounded"
             android:backgroundTint="@color/grey_3">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/shape_rounded_1"
+                android:background="@drawable/shape_rounded"
                 android:backgroundTint="@color/grey_4">
 
                 <ImageView
@@ -62,6 +62,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/input_hint_from"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:nextFocusDown="@id/input_to"
+                        android:maxLength="40"
                         tools:text="Минск"/>
 
                     <com.google.android.material.divider.MaterialDivider
@@ -74,7 +78,10 @@
                         android:id="@+id/input_to"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/input_hint_to"/>
+                        android:hint="@string/input_hint_to"
+                        android:singleLine="true"
+                        android:imeOptions="actionSearch"
+                        android:maxLength="40"/>
 
                 </LinearLayout>
 
@@ -91,6 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:textColor="@color/white"
             android:text="@string/title_offers" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -101,7 +109,6 @@
             tools:listitem="@layout/item_offer"/>
 
         <Button
-            style="@style/ButtonText"
             android:id="@+id/show_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/greeting"
-            android:textColor="@color/grey_3" />
+            android:textColor="@color/grey_4" />
 
     </LinearLayout>
 

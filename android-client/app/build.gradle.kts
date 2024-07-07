@@ -28,10 +28,16 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -49,6 +55,9 @@ dependencies {
     /* Navigation */
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+
+    /* Coil (Asynchronous images loading on UI-side) */
+    implementation(libs.coil.kt)
 
     /* Android */
     implementation(libs.androidx.core.ktx)

@@ -1,10 +1,10 @@
 package com.vl.aviatickets.domain.manager
 
-import com.vl.aviatickets.domain.boundary.HistoryCache
+import com.vl.aviatickets.domain.boundary.HistoryStore
 import java.util.LinkedList
 
 class HistoryManager(
-    private val cache: HistoryCache<String>,
+    private val cache: HistoryStore,
     private val maxCapacity: Int
 ) {
     val lastDepartureCity by cache::lastDepartureCity

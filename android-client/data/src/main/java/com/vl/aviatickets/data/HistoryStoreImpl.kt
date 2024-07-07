@@ -8,7 +8,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.vl.aviatickets.domain.boundary.HistoryCache
+import com.vl.aviatickets.domain.boundary.HistoryStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
@@ -23,7 +23,7 @@ private val KEY_DEPARTURE_CITY = stringPreferencesKey("departure_city")
 private val KEY_ARRIVAL_CITIES = stringSetPreferencesKey("arrival_cities")
 private val Context.dataStore by preferencesDataStore(PREFERENCES_FILE)
 
-class DataStoreHistoryCache(private val context: Context): HistoryCache<String> {
+class HistoryStoreImpl(private val context: Context): HistoryStore {
 
     private val dataStore: DataStore<Preferences> get() = context.dataStore
     private val scope = CoroutineScope(Dispatchers.IO)
