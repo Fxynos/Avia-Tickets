@@ -18,6 +18,17 @@
         <item name="android:textFontWeight">600</item>
     </style>
 
+    <style name="ImageButtonStyle" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="tint">@color/grey_7</item>
+    </style>
+
+    <style name="IconStyle">
+        <item name="android:scaleType">fitCenter</item>
+        <item name="tint">@color/white</item>
+    </style>
+
     <!-- Typographic -->
 
     <style name="Title1">

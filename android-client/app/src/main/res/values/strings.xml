@@ -13,4 +13,9 @@
     <string name="shorter">Короче</string>
     <string name="profile">Профиль</string>
     <string name="subscriptions">Подписки</string>
+    <string name="option_complex_route">Сложный\nмаршрут</string>
+    <string name="option_anywhere">Куда угодно</string>
+    <string name="option_weekend">Выходные</string>
+    <string name="option_hot">Горячие\nбилеты</string>
+    <string name="badge_popular">Популярное направление</string>
 </resources>

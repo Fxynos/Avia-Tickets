@@ -16,6 +16,8 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/sf_pro_display</item>
         <item name="materialButtonStyle">@style/ButtonStyle</item>
+        <item name="android:imageButtonStyle">@style/ImageButtonStyle</item>
+        <item name="imageButtonStyle">@style/ImageButtonStyle</item>
         <item name="android:editTextStyle">@style/EditTextStyle</item>
         <item name="editTextStyle">@style/EditTextStyle</item>
     </style>

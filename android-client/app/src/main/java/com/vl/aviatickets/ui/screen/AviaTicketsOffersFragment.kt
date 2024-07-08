@@ -24,6 +24,8 @@ class AviaTicketsOffersFragment: Fragment() {
     private val viewModel: OffersViewModel by viewModels()
     private lateinit var adapter: OffersRecyclerViewAdapter
 
+    private val isDepartureTownValid: Boolean get() = binding.inputFrom.text.isNotBlank()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         parent: ViewGroup?,
@@ -41,16 +43,13 @@ class AviaTicketsOffersFragment: Fragment() {
         if (savedInstanceState == null)
             binding.inputFrom.setText(viewModel.defaultDepartureTown)
 
+        // when user has to enter arrival town, bottom sheet pops up
         binding.inputTo.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.inputTo.clearFocus()
                 viewModel.setDepartureTown(binding.inputFrom.text.toString())
                 showSearchBottomSheet()
             }
-        }
-
-        adapter.setOnItemClickListener { item, _ ->
-            Toast.makeText(requireContext(), "Offer#${item.id} pressed", Toast.LENGTH_SHORT).show()
         }
 
         lifecycleScope.launch {
@@ -62,7 +61,29 @@ class AviaTicketsOffersFragment: Fragment() {
         }
     }
 
+    /**
+     * Called from [AviaTicketsSearchFragment]
+     */
+    private fun onSearch(departureTown: String, arrivalTown: String) {
+        findNavController().navigate(AviaTicketsOffersFragmentDirections.actionOffersSearch(
+            departureTown,
+            arrivalTown
+        ))
+    }
+
+    /**
+     * Check if departure town is valid, show bottom sheet if it is
+     */
     private fun showSearchBottomSheet() {
-        findNavController().navigate(R.id.action_offers_search)
+        if (!isDepartureTownValid) {
+            binding.inputFrom.requestFocus()
+            return
+        }
+
+        val bottomSheet = AviaTicketsSearchFragment(
+            binding.inputFrom.text.toString(),
+            this::onSearch
+        )
+        bottomSheet.show(parentFragmentManager, null)
     }
 }

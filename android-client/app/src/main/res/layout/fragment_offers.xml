@@ -31,19 +31,19 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_padding"
             android:padding="16dp"
-            android:background="@drawable/shape_rounded"
+            android:background="@drawable/shape_rounded_1"
             android:backgroundTint="@color/grey_3">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/shape_rounded"
+                android:background="@drawable/shape_rounded_1"
                 android:backgroundTint="@color/grey_4">
 
                 <ImageView
-                    android:layout_width="@dimen/icon_size"
-                    android:layout_height="@dimen/icon_size"
+                    android:layout_width="@dimen/icon_size_3"
+                    android:layout_height="@dimen/icon_size_3"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
                     android:src="@drawable/ic_search"
@@ -71,7 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp"
-                        android:background="@color/grey_5"/>
+                        app:dividerColor="@color/grey_5"/>
 
                     <EditText
                         android:id="@+id/input_to"

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
+    android:background="@drawable/shape_bottom_sheet"
+    tools:context=".ui.screen.AviaTicketsSearchFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_bottom_sheet_handle"/>
+
+    <!-- Searchbar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/shape_rounded_1"
+        android:backgroundTint="@color/grey_3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_3"
+                android:layout_height="@dimen/icon_size_3"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_flight"
+                android:scaleType="fitCenter"
+                app:tint="@color/grey_5" />
+
+            <EditText
+                android:id="@+id/input_from"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_hint_from"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/input_to"
+                android:maxLength="40"
+                tools:text="Минск"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:background="@color/grey_4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_3"
+                android:layout_height="@dimen/icon_size_3"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_search"
+                android:scaleType="fitCenter"
+                app:tint="@color/grey_7"/>
+
+            <EditText
+                android:id="@+id/input_to"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/input_hint_to"
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:maxLength="40"/>
+            
+            <ImageButton
+                android:id="@+id/clear"
+                android:layout_width="@dimen/icon_size_3"
+                android:layout_height="@dimen/icon_size_3"
+                android:src="@drawable/ic_close" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Options (space between flow) -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:paddingHorizontal="8dp">
+
+        <!-- TODO implement custom view -->
+
+        <!-- First -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/icon_size_1"
+                android:layout_height="@dimen/icon_size_1"
+                android:background="@drawable/shape_rounded_2"
+                android:backgroundTint="@color/dark_green">
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_3"
+                    android:layout_height="@dimen/icon_size_3"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_route"/>
+            </FrameLayout>
+
+            <TextView
+                style="@style/Text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/option_complex_route"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- Second -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/icon_size_1"
+                android:layout_height="@dimen/icon_size_1"
+                android:background="@drawable/shape_rounded_2"
+                android:backgroundTint="@color/blue">
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_3"
+                    android:layout_height="@dimen/icon_size_3"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_world"/>
+            </FrameLayout>
+
+            <TextView
+                style="@style/Text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/option_anywhere"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- Third -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/icon_size_1"
+                android:layout_height="@dimen/icon_size_1"
+                android:background="@drawable/shape_rounded_2"
+                android:backgroundTint="@color/dark_blue">
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_3"
+                    android:layout_height="@dimen/icon_size_3"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_calendar"/>
+            </FrameLayout>
+
+            <TextView
+                style="@style/Text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/option_weekend"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- Fourth -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/icon_size_1"
+                android:layout_height="@dimen/icon_size_1"
+                android:background="@drawable/shape_rounded_2"
+                android:backgroundTint="@color/red">
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_3"
+                    android:layout_height="@dimen/icon_size_3"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_fire"/>
+            </FrameLayout>
+
+            <TextView
+                style="@style/Text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/option_hot"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Recommendations list -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:background="@drawable/shape_rounded_1"
+        android:backgroundTint="@color/grey_3">
+
+        <!-- First -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="8dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/icon_size_2"
+                android:layout_height="@dimen/icon_size_2"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/preview_istanbul"/>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Title3"
+                    android:id="@+id/popular_title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    tools:text="Стамбул"/>
+
+                <TextView
+                    style="@style/Text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_5"
+                    android:text="@string/badge_popular"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerColor="@color/grey_4"/>
+
+        <!-- Second -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="8dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/icon_size_2"
+                android:layout_height="@dimen/icon_size_2"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/preview_sochi"/>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Title3"
+                    android:id="@+id/popular_title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    tools:text="Сочи"/>
+
+                <TextView
+                    style="@style/Text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_5"
+                    android:text="@string/badge_popular"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerColor="@color/grey_4"/>
+
+        <!-- Third -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="8dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/icon_size_2"
+                android:layout_height="@dimen/icon_size_2"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/preview_phuket"/>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Title3"
+                    android:id="@+id/popular_title3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    tools:text="Пхукет"/>
+
+                <TextView
+                    style="@style/Text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_5"
+                    android:text="@string/badge_popular"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerColor="@color/grey_4"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -10,22 +10,15 @@
         tools:layout="@layout/fragment_offers">
 
         <action android:id="@+id/action_offers_search"
-            app:destination="@id/dest_search"/>
+            app:destination="@id/dest_searchResults">
+            <argument android:name="departureTown" app:argType="string" app:nullable="false"/>
+            <argument android:name="arrivalTown" app:argType="string" app:nullable="false"/>
+        </action>
 
     </fragment>
 
-    <!-- TODO move to bottom sheet -->
-    <fragment android:id="@+id/dest_search"
-        android:name="com.vl.aviatickets.ui.screen.AviaTicketsSearchFragment"
-        tools:layout="@layout/fragment_stub">
-
-        <action android:id="@+id/action_search_chosenCountry"
-            app:destination="@id/dest_chosenCountry"/>
-
-    </fragment>
-
-    <fragment android:id="@+id/dest_chosenCountry"
-        android:name="com.vl.aviatickets.ui.screen.AviaTicketsChosenCountryFragment"
+    <fragment android:id="@+id/dest_searchResults"
+        android:name="com.vl.aviatickets.ui.screen.AviaTicketsSearchResultsFragment"
         tools:layout="@layout/fragment_stub">
 
         <action android:id="@+id/chosenCountry_allTickets"

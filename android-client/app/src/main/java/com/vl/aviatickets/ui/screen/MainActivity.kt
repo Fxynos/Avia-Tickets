@@ -5,6 +5,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.vl.aviatickets.NavGlobalDirections
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,11 +33,11 @@ class MainActivity: AppCompatActivity() {
      */
     private fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         navController.navigate(when (menuItem.itemId) {
-            R.id.item_tickets -> R.id.action_global_tickets
-            R.id.item_hotels -> R.id.action_global_hotels
-            R.id.item_shorter -> R.id.action_global_shorter
-            R.id.item_subscriptions -> R.id.action_global_subscriptions
-            R.id.item_profile -> R.id.action_global_profile
+            R.id.item_tickets -> NavGlobalDirections.actionGlobalTickets()
+            R.id.item_hotels -> NavGlobalDirections.actionGlobalHotels()
+            R.id.item_shorter -> NavGlobalDirections.actionGlobalShorter()
+            R.id.item_subscriptions -> NavGlobalDirections.actionGlobalSubscriptions()
+            R.id.item_profile -> NavGlobalDirections.actionGlobalProfile()
             else -> throw RuntimeException() // unreachable
         }) // TODO update selected item on controller navigate up
         return true
