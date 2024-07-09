@@ -26,4 +26,8 @@
     <string name="subscribe_on_price">Подписка на цену</string>
     <string name="fab_filter">Фильтр</string>
     <string name="price_chart">График цен</string>
+    <string name="dialog_invalid_town_title">Неверно указан город</string>
+    <string name="dialog_invalid_departure_town_message">Укажите город отправления, используя только символы кириллицы</string>
+    <string name="dialog_invalid_arrival_town_message">Укажите город прибытия, используя только символы кириллицы</string>
+    <string name="dialog_neutral_button">Окей</string>
 </resources>

@@ -64,7 +64,7 @@
                         android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:nextFocusDown="@id/input_to"
-                        android:maxLength="40"
+                        android:maxLength="30"
                         tools:text="Минск"/>
 
                     <com.google.android.material.divider.MaterialDivider
@@ -80,7 +80,7 @@
                         android:hint="@string/input_hint_to"
                         android:singleLine="true"
                         android:imeOptions="actionSearch"
-                        android:maxLength="40"/>
+                        android:maxLength="30"/>
 
                 </LinearLayout>
 

@@ -29,18 +29,23 @@
     <!-- Global actions -->
 
     <action android:id="@+id/action_global_tickets"
-        app:destination="@id/nav_tickets"/>
+        app:destination="@id/nav_tickets"
+        app:launchSingleTop="true"/>
 
     <action android:id="@+id/action_global_hotels"
-        app:destination="@id/dest_hotels"/>
+        app:destination="@id/dest_hotels"
+        app:launchSingleTop="true"/>
 
     <action android:id="@+id/action_global_shorter"
-        app:destination="@id/dest_shorter"/>
+        app:destination="@id/dest_shorter"
+        app:launchSingleTop="true"/>
 
     <action android:id="@+id/action_global_subscriptions"
-        app:destination="@id/dest_subscriptions"/>
+        app:destination="@id/dest_subscriptions"
+        app:launchSingleTop="true"/>
 
     <action android:id="@+id/action_global_profile"
-        app:destination="@id/dest_profile"/>
+        app:destination="@id/dest_profile"
+        app:launchSingleTop="true"/>
 
 </navigation>

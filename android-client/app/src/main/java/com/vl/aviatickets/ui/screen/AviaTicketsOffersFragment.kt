@@ -6,10 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.FragmentOffersBinding
 import com.vl.aviatickets.ui.adapter.OffersAdapter
+import com.vl.aviatickets.ui.hideKeyboard
 import com.vl.aviatickets.ui.viewmodel.OffersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -20,8 +25,6 @@ class AviaTicketsOffersFragment: Fragment() {
     private lateinit var binding: FragmentOffersBinding
     private val viewModel: OffersViewModel by viewModels()
     private val adapter = OffersAdapter()
-
-    private val isDepartureTownValid: Boolean get() = binding.inputFrom.text.isNotBlank()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,40 +44,74 @@ class AviaTicketsOffersFragment: Fragment() {
 
         // when user has to enter arrival town, bottom sheet pops up
         binding.inputTo.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                binding.inputTo.clearFocus()
-                viewModel.setDepartureTown(binding.inputFrom.text.toString())
-                showSearchBottomSheet()
-            }
+            if (!hasFocus)
+                return@setOnFocusChangeListener
+
+            binding.inputTo.clearFocus()
+            hideKeyboard()
+            viewModel.chooseDepartureTown(binding.inputFrom.text.toString().trim())
         }
 
-        lifecycleScope.launch {
-            viewModel.offersState.collect(adapter::setItems)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch { viewModel.offersState.collect(adapter::setItems) }
+                launch { viewModel.validationResultEvents.collect {
+                    when (it) {
+                        is OffersViewModel.ValidationResult.InvalidTown ->
+                            MaterialAlertDialogBuilder(requireActivity())
+                                .setTitle(R.string.dialog_invalid_town_title)
+                                .setMessage(
+                                    if (it.isDepartureTown)
+                                        R.string.dialog_invalid_departure_town_message
+                                    else
+                                        R.string.dialog_invalid_arrival_town_message
+                                ).setNeutralButton(R.string.dialog_neutral_button, null)
+                                .show()
+
+                        is OffersViewModel.ValidationResult.NavigateToChoosingArrivalTown ->
+                            showSearchBottomSheet(it.departureTown)
+
+                        is OffersViewModel.ValidationResult.NavigateToSearch ->
+                            findNavController().navigate(
+                                AviaTicketsOffersFragmentDirections.actionOffersSearchResults(
+                                    it.departureTown,
+                                    it.arrivalTown
+                                )
+                            )
+                    }
+                }}
+            }
         }
     }
 
     /**
      * Called from [AviaTicketsSearchFragment]
      */
-    private fun onSearch(departureTown: String, arrivalTown: String) {
-        findNavController().navigate(AviaTicketsOffersFragmentDirections.actionOffersSearchResults(
-            departureTown,
-            arrivalTown
-        ))
+    private fun onSearch(arrivalTown: String) {
+        viewModel.chooseArrivalTown(arrivalTown)
     }
 
-    /**
-     * Check if departure town is valid, show bottom sheet if it is
-     */
-    private fun showSearchBottomSheet() {
-        if (!isDepartureTownValid) {
-            binding.inputFrom.requestFocus()
-            return
-        }
-
+    private fun showSearchBottomSheet(departureTown: String) {
+        // FIXME backstack duplicates of offers fragment lead to several bottom sheets
         val bottomSheet = AviaTicketsSearchFragment(
-            binding.inputFrom.text.toString(),
-            this::onSearch
+            departureTown = departureTown,
+            popularDestinations = viewModel.recommendedArrivalTowns,
+            onSearch = this::onSearch,
+            onClickComplexPath = {
+                findNavController().navigate(
+                    AviaTicketsOffersFragmentDirections.actionOffersComplexPath()
+                )
+            },
+            onClickWeekend = {
+                findNavController().navigate(
+                    AviaTicketsOffersFragmentDirections.actionOffersWeekend()
+                )
+            },
+            onClickHotTickets = {
+                findNavController().navigate(
+                    AviaTicketsOffersFragmentDirections.actionOffersHotTickets()
+                )
+            }
         )
         bottomSheet.show(parentFragmentManager, null)
     }
