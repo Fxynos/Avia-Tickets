@@ -63,6 +63,10 @@ dependencies {
     /* Shimmer */
     implementation(libs.shimmer)
 
+    /* Adapter Delegates */
+    implementation(libs.adapter.delegates.dsl)
+    implementation(libs.adapter.delegates.viewbinding)
+
     /* Android */
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

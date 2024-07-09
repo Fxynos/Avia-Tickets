@@ -40,7 +40,7 @@ class MockAviaTicketsController {
           ]
         }
     """.trimIndent()).also {
-        Thread.sleep(3000) // imitate delay to show shimmer
+        Thread.sleep(1000) // imitate delay to show shimmer
     }
 
     @GetMapping("/tickets_offers")

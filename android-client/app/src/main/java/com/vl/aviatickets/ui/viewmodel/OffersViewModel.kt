@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.vl.aviatickets.domain.entity.Offer
 import com.vl.aviatickets.domain.manager.HistoryManager
 import com.vl.aviatickets.domain.manager.OffersManager
+import com.vl.aviatickets.ui.entity.OffersItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -27,16 +28,20 @@ class OffersViewModel @Inject constructor(
     offersManager: OffersManager
 ): ViewModel() {
     val defaultDepartureTown: String get() = historyManager.lastDepartureTown ?: ""
-    val offersState: StateFlow<List<Offer>?> = flow {
+    val offersState: StateFlow<List<OffersItem>> = flow {
             while (true) try {
-                emit(offersManager.getOffers())
+                emit(offersManager.getOffers().map(OffersItem::Loaded))
                 return@flow
             } catch (e: IOException) {
                 Log.w(TAG, e.stackTraceToString())
                 delay(RETRY_DELAY)
             }
         }.flowOn(Dispatchers.IO)
-        .stateIn(viewModelScope, SharingStarted.Eagerly, null)
+        .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            listOf(OffersItem.Loading, OffersItem.Loading, OffersItem.Loading)
+        )
 
     fun setDepartureTown(town: String) = historyManager.saveDepartureTown(town)
 }
