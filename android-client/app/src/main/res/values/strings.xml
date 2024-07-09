@@ -18,4 +18,10 @@
     <string name="option_weekend">Выходные</string>
     <string name="option_hot">Горячие\nбилеты</string>
     <string name="badge_popular">Популярное направление</string>
+    <string name="chip_backward">обратно</string>
+    <string name="chip_filter">фильтры</string>
+    <string name="direct_flights">Прямые рейсы</string>
+    <string name="show_all_flights">Показать все</string>
+    <string name="show_all_tickets">Посмотреть все билеты</string>
+    <string name="subscribe_on_price">Подписка на цену</string>
 </resources>

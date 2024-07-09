@@ -4,5 +4,6 @@
     <dimen name="icon_size_1">48dp</dimen>
     <dimen name="icon_size_2">40dp</dimen>
     <dimen name="icon_size_3">24dp</dimen>
+    <dimen name="icon_size_4">16dp</dimen>
     <dimen name="image_button_size">32dp</dimen>
 </resources>

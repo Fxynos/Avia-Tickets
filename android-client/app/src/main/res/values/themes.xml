@@ -20,5 +20,7 @@
         <item name="imageButtonStyle">@style/ImageButtonStyle</item>
         <item name="android:editTextStyle">@style/EditTextStyle</item>
         <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="android:switchStyle">@style/SwitchStyle</item>
+        <item name="switchStyle">@style/SwitchStyle</item>
     </style>
 </resources>

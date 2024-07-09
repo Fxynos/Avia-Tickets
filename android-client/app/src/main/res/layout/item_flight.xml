@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
+
+        <!-- First column -->
+
+        <ImageView
+            android:id="@+id/indicator"
+            android:layout_width="@dimen/icon_size_3"
+            android:layout_height="@dimen/icon_size_3"
+            android:src="@drawable/shape_circle"/>
+
+        <!-- Second column -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <!-- First line -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/Title4"
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Уральские авиалинии"/>
+
+                <TextView
+                    style="@style/Title4"
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="?attr/colorPrimaryVariant"
+                    tools:text="2 390 ₽"/>
+
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_4"
+                    android:layout_height="@dimen/icon_size_4"
+                    android:src="@drawable/ic_next"
+                    app:tint="?attr/colorPrimaryVariant" />
+
+            </LinearLayout>
+
+            <!-- Second line -->
+
+            <TextView
+                style="@style/Text2"
+                android:id="@+id/timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                tools:text="7:00 8:00 8:40 9:20 10:00 10:40 11:20 12:00 13:00 14:30 15:40 16:20"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dividerColor="@color/grey_4"/>
+
+</LinearLayout>

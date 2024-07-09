@@ -24,6 +24,13 @@
         <item name="tint">@color/grey_7</item>
     </style>
 
+    <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="trackTint">@color/switch_track</item>
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
     <style name="IconStyle">
         <item name="android:scaleType">fitCenter</item>
         <item name="tint">@color/white</item>
@@ -49,6 +56,7 @@
     <style name="Title4">
         <item name="android:textSize">14sp</item>
         <item name="android:textFontWeight">400</item>
+        <item name="android:textStyle">italic</item>
     </style>
 
     <style name="Text1">
