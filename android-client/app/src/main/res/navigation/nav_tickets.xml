@@ -9,7 +9,7 @@
         android:name="com.vl.aviatickets.ui.screen.AviaTicketsOffersFragment"
         tools:layout="@layout/fragment_offers">
 
-        <action android:id="@+id/action_offers_search"
+        <action android:id="@+id/action_offers_searchResults"
             app:destination="@id/dest_searchResults">
             <argument android:name="departureTown" app:argType="string" app:nullable="false"/>
             <argument android:name="arrivalTown" app:argType="string" app:nullable="false"/>
@@ -21,25 +21,31 @@
         android:name="com.vl.aviatickets.ui.screen.AviaTicketsSearchResultsFragment"
         tools:layout="@layout/fragment_search_results">
 
-        <action android:id="@+id/chosenCountry_allTickets"
-            app:destination="@id/dest_allTickets"/>
+        <action android:id="@+id/searchResults_tickets"
+            app:destination="@id/dest_tickets">
+            <argument android:name="departureTown" app:argType="string" app:nullable="false"/>
+            <argument android:name="arrivalTown" app:argType="string" app:nullable="false"/>
+            <argument android:name="date" app:argType="string" app:nullable="false"/>
+            <argument android:name="passengersCount" app:argType="integer" app:nullable="false"/>
+        </action>
 
-        <action android:id="@+id/chosenCountry_filters"
+        <action android:id="@+id/searchResults_filters"
             app:destination="@id/dest_filters"/>
 
     </fragment>
 
-    <fragment android:id="@+id/dest_allTickets"
-        android:name="com.vl.aviatickets.ui.screen.AviaTicketsAllTicketsFragment"
-        tools:layout="@layout/fragment_stub">
+    <fragment android:id="@+id/dest_tickets"
+        android:name="com.vl.aviatickets.ui.screen.AviaTicketsTicketsFragment"
+        tools:layout="@layout/fragment_tickets">
 
         <action android:id="@+id/allTickets_filters"
             app:destination="@id/dest_filters"/>
 
     </fragment>
 
+    <!-- TODO implement filtering -->
     <fragment android:id="@+id/dest_filters"
-        android:name="com.vl.aviatickets.ui.screen.AviaTicketsFiltersFragment"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
         tools:layout="@layout/fragment_stub"/>
 
 </navigation>

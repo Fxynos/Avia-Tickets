@@ -31,14 +31,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_padding"
             android:padding="16dp"
-            android:background="@drawable/shape_rounded_1"
+            android:background="@drawable/shape_rounded_2"
             android:backgroundTint="@color/grey_3">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/shape_rounded_1"
+                android:background="@drawable/shape_rounded_2"
                 android:backgroundTint="@color/grey_4">
 
                 <ImageView

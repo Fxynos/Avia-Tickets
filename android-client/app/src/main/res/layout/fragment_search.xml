@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@drawable/shape_rounded_1"
+        android:background="@drawable/shape_rounded_2"
         android:backgroundTint="@color/grey_3">
 
         <LinearLayout
@@ -113,7 +113,7 @@
             <FrameLayout
                 android:layout_width="@dimen/icon_size_1"
                 android:layout_height="@dimen/icon_size_1"
-                android:background="@drawable/shape_rounded_2"
+                android:background="@drawable/shape_rounded_3"
                 android:backgroundTint="@color/dark_green">
                 <ImageView
                     style="@style/IconStyle"
@@ -149,7 +149,7 @@
             <FrameLayout
                 android:layout_width="@dimen/icon_size_1"
                 android:layout_height="@dimen/icon_size_1"
-                android:background="@drawable/shape_rounded_2"
+                android:background="@drawable/shape_rounded_3"
                 android:backgroundTint="@color/blue">
                 <ImageView
                     style="@style/IconStyle"
@@ -185,7 +185,7 @@
             <FrameLayout
                 android:layout_width="@dimen/icon_size_1"
                 android:layout_height="@dimen/icon_size_1"
-                android:background="@drawable/shape_rounded_2"
+                android:background="@drawable/shape_rounded_3"
                 android:backgroundTint="@color/dark_blue">
                 <ImageView
                     style="@style/IconStyle"
@@ -221,7 +221,7 @@
             <FrameLayout
                 android:layout_width="@dimen/icon_size_1"
                 android:layout_height="@dimen/icon_size_1"
-                android:background="@drawable/shape_rounded_2"
+                android:background="@drawable/shape_rounded_3"
                 android:backgroundTint="@color/red">
                 <ImageView
                     style="@style/IconStyle"
@@ -251,7 +251,7 @@
         android:orientation="vertical"
         android:layout_marginTop="32dp"
         android:padding="16dp"
-        android:background="@drawable/shape_rounded_1"
+        android:background="@drawable/shape_rounded_2"
         android:backgroundTint="@color/grey_3">
 
         <!-- First -->

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/screen_padding"
+    android:paddingTop="@dimen/screen_padding">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"
+        android:background="@color/grey_2">
+        
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="@dimen/icon_size_3"
+            android:layout_height="@dimen/icon_size_3"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_back"
+            app:tint="?attr/colorPrimaryVariant"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                style="@style/Title3"
+                android:id="@+id/route"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Москва-Сочи"/>
+
+            <TextView
+                style="@style/Title4"
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/grey_6"
+                tools:text="23 февраля, 1 пассажир" />
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tickets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="24dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_ticket"/>
+
+        <!-- Kinda FAB -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="-8dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:padding="12dp"
+            android:background="@drawable/shape_rounded_1"
+            android:backgroundTint="?attr/colorPrimary">
+
+            <LinearLayout
+                android:id="@+id/filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_4"
+                    android:layout_height="@dimen/icon_size_4"
+                    android:src="@drawable/ic_filter"/>
+
+                <TextView
+                    style="@style/Title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/fab_filter"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/price_chart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/IconStyle"
+                    android:layout_width="@dimen/icon_size_4"
+                    android:layout_height="@dimen/icon_size_4"
+                    android:src="@drawable/ic_chart"/>
+
+                <TextView
+                    style="@style/Title4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/price_chart"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

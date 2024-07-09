@@ -19,7 +19,7 @@
             android:id="@+id/indicator"
             android:layout_width="@dimen/icon_size_3"
             android:layout_height="@dimen/icon_size_3"
-            android:src="@drawable/shape_circle"/>
+            android:src="@drawable/ic_circle"/>
 
         <!-- Second column -->
 

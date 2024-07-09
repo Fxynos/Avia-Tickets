@@ -9,7 +9,7 @@ import com.vl.aviatickets.databinding.FragmentStubBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AviaTicketsAllTicketsFragment: Fragment() {
+class AviaTicketsTicketsFragment: Fragment() {
 
     private lateinit var binding: FragmentStubBinding
 

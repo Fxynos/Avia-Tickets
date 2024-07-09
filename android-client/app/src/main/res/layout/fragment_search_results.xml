@@ -17,7 +17,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="16dp"
         android:paddingVertical="16dp"
-        android:background="@drawable/shape_rounded_1"
+        android:background="@drawable/shape_rounded_2"
         android:backgroundTint="@color/grey_3">
 
         <ImageButton
@@ -208,7 +208,7 @@
         android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
-        android:background="@drawable/shape_rounded_1"
+        android:background="@drawable/shape_rounded_2"
         android:backgroundTint="@color/grey_1">
 
         <TextView
@@ -255,7 +255,7 @@
         android:layout_marginHorizontal="@dimen/screen_padding"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
-        android:background="@drawable/shape_rounded_2"
+        android:background="@drawable/shape_rounded_3"
         android:backgroundTint="@color/grey_1">
 
         <ImageView

@@ -24,4 +24,6 @@
     <string name="show_all_flights">Показать все</string>
     <string name="show_all_tickets">Посмотреть все билеты</string>
     <string name="subscribe_on_price">Подписка на цену</string>
+    <string name="fab_filter">Фильтр</string>
+    <string name="price_chart">График цен</string>
 </resources>

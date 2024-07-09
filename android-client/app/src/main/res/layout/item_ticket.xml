@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp">
+
+    <!-- Background -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/badge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_goneMarginTop="0dp"
+        android:background="@drawable/shape_rounded_3"
+        android:backgroundTint="@color/grey_1"/>
+
+    <!-- Badge -->
+
+    <LinearLayout
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:background="@drawable/shape_rounded_1"
+        android:backgroundTint="?attr/colorPrimary"
+        tools:visibility="visible">
+        <TextView
+            style="@style/Title4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Самый удобный" />
+    </LinearLayout>
+
+    <!-- Content -->
+
+    <TextView
+        style="@style/Title1"
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/badge"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_goneMarginTop="16dp"
+        tools:text="6 990 ₽"/>
+    
+    <ImageView
+        style="@style/IconStyle"
+        android:id="@+id/indicator"
+        android:layout_width="@dimen/icon_size_3"
+        android:layout_height="@dimen/icon_size_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/departure_time"
+        app:layout_constraintBottom_toBottomOf="@id/departure_airport"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_circle"
+        app:tint="@color/red"/>
+
+    <!-- First row (duration) -->
+
+    <TextView
+        style="@style/Title4"
+        android:id="@+id/departure_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/indicator"
+        app:layout_constraintTop_toBottomOf="@id/price"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        tools:text="03:15"/>
+
+    <View
+        android:id="@+id/time_separator"
+        android:layout_width="12dp"
+        android:layout_height="1dp"
+        android:background="@color/grey_6"
+        app:layout_constraintStart_toEndOf="@id/departure_time"
+        app:layout_constraintTop_toTopOf="@id/departure_time"
+        app:layout_constraintBottom_toBottomOf="@id/departure_time"
+        android:layout_marginStart="4dp"/>
+
+    <TextView
+        style="@style/Title4"
+        android:id="@+id/arrival_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/time_separator"
+        app:layout_constraintBaseline_toBaselineOf="@id/departure_time"
+        android:layout_marginStart="4dp"
+        tools:text="07:10"/>
+
+    <TextView
+        style="@style/Text2"
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/arrival_time"
+        app:layout_constraintBaseline_toBaselineOf="@id/arrival_time"
+        android:layout_marginStart="16dp"
+        tools:text="4ч в пути / Без пересадок"/>
+
+    <!-- Second row (airports) -->
+
+    <TextView
+        style="@style/Title4"
+        android:id="@+id/departure_airport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/departure_time"
+        app:layout_constraintTop_toBottomOf="@id/departure_time"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/grey_6"
+        tools:text="VKO"/>
+
+    <TextView
+        style="@style/Title4"
+        android:id="@+id/arrival_airport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/arrival_time"
+        app:layout_constraintBaseline_toBaselineOf="@id/departure_airport"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/grey_6"
+        tools:text="AER"/>
+
+    <!-- Kinda margin bottom -->
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/screen_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/departure_airport"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
