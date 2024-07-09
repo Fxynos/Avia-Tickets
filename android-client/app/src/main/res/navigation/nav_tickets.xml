@@ -15,6 +15,15 @@
             <argument android:name="arrivalTown" app:argType="string" app:nullable="false"/>
         </action>
 
+        <action android:id="@+id/action_offers_complexPath"
+            app:destination="@id/dest_complexPath"/>
+
+        <action android:id="@+id/action_offers_weekend"
+            app:destination="@id/dest_weekend"/>
+
+        <action android:id="@+id/action_offers_hotTickets"
+            app:destination="@id/dest_hotTickets"/>
+
     </fragment>
 
     <fragment android:id="@+id/dest_searchResults"
@@ -29,22 +38,23 @@
             <argument android:name="passengersCount" app:argType="integer" app:nullable="false"/>
         </action>
 
-        <action android:id="@+id/searchResults_filters"
-            app:destination="@id/dest_filters"/>
-
     </fragment>
 
     <fragment android:id="@+id/dest_tickets"
         android:name="com.vl.aviatickets.ui.screen.AviaTicketsTicketsFragment"
-        tools:layout="@layout/fragment_tickets">
+        tools:layout="@layout/fragment_tickets"/>
 
-        <action android:id="@+id/allTickets_filters"
-            app:destination="@id/dest_filters"/>
+    <!-- Stub -->
 
-    </fragment>
+    <fragment android:id="@+id/dest_complexPath"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
+        tools:layout="@layout/fragment_stub"/>
 
-    <!-- TODO implement filtering -->
-    <fragment android:id="@+id/dest_filters"
+    <fragment android:id="@+id/dest_weekend"
+        android:name="com.vl.aviatickets.ui.screen.StubFragment"
+        tools:layout="@layout/fragment_stub"/>
+
+    <fragment android:id="@+id/dest_hotTickets"
         android:name="com.vl.aviatickets.ui.screen.StubFragment"
         tools:layout="@layout/fragment_stub"/>
 
