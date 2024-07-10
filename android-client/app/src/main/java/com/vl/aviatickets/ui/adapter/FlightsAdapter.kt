@@ -38,6 +38,7 @@ private val loadedFlightsAdapterDelegate: AdapterDelegate<List<FlightsItem>>
             ItemFlightBinding.inflate(inflater, parent, false)
         },
         block = { bind {
+            binding.root.visibility = View.VISIBLE
             binding.name.text = item.flight.title
             binding.price.text = context.getString(
                 R.string.price,

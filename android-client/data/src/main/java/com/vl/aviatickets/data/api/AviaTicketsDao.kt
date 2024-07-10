@@ -12,7 +12,9 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 private val BASE_URL: String = BuildConfig.API_BASE_URL.let { url ->
     if (url.endsWith('/')) url else "$url/"
@@ -61,6 +63,7 @@ object AviaTicketsDao: OffersRepository, TicketsRepository, TicketsOffersReposit
 }
 
 private fun parseDateToUnixSeconds(dateTime: String): Long =
-    Calendar.getInstance().apply {
-        time = DateFormat.getDateInstance().parse(dateTime)!!
-    }.timeInMillis / 1000
+    SimpleDateFormat(
+        "yyyy-MM-DD'T'HH:mm:ss",
+        Locale.getDefault()
+    ).parse(dateTime)!!.time / 1000
