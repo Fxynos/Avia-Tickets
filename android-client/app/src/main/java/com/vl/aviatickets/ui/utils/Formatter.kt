@@ -61,9 +61,16 @@ object Formatter {
         return "$day $month"
     }
 
-    fun formatUserDayOfWeek(date: Calendar): String = listOf(
-        "пн", "вт", "ср", "чт", "пт", "сб", "вс"
-    )[date[Calendar.DAY_OF_WEEK]]
+    fun formatUserDayOfWeek(date: Calendar): String = when (date[Calendar.DAY_OF_WEEK]) {
+        Calendar.MONDAY -> "пн"
+        Calendar.TUESDAY -> "вт"
+        Calendar.WEDNESDAY -> "ср"
+        Calendar.THURSDAY -> "чт"
+        Calendar.FRIDAY -> "пт"
+        Calendar.SATURDAY -> "сб"
+        Calendar.SUNDAY -> "вс"
+        else -> throw RuntimeException() // unreachable
+    }
 
     fun formatUserTime(date: Calendar): String = SimpleDateFormat(
         "HH:mm",

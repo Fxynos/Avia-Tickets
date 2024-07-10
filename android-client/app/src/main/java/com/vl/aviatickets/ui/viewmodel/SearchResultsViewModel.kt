@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okio.IOException
 import java.util.Calendar
+import java.util.Locale
 import javax.inject.Inject
 
 private const val TAG = "SearchResults"
@@ -115,8 +116,13 @@ class SearchResultsViewModel @Inject constructor(
         }
     }
 
-    fun setFlightDate(dateTime: String) {
-        flightDate = Formatter.parseDateTime(dateTime)
+    fun setFlightDate(day: Int, month: Int, year: Int) {
+        flightDate = Calendar.Builder()
+            .setLocale(Locale.getDefault())
+            .set(Calendar.DAY_OF_MONTH, day)
+            .set(Calendar.MONTH, month)
+            .set(Calendar.YEAR, year)
+            .build()
         _uiState.update {
             it.copy(
                 date = Formatter.formatUserDate(flightDate),

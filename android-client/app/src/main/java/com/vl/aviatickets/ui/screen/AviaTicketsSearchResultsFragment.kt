@@ -1,6 +1,7 @@
 package com.vl.aviatickets.ui.screen
 
 import android.animation.ValueAnimator
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -19,6 +21,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.datepicker.DateSelector
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.FragmentSearchResultsBinding
 import com.vl.aviatickets.domain.entity.Route
@@ -67,7 +71,10 @@ class AviaTicketsSearchResultsFragment: Fragment() {
             binding.swap,
             binding.clear,
             binding.showAllFlights,
-            binding.showAllTickets
+            binding.showAllTickets,
+            binding.chipBackwardTicket,
+            binding.chipDate,
+            binding.chipPassengers
         ).forEach { it.setOnClickListener(this::onClick) }
 
         // clicked search action on keyboard
@@ -183,6 +190,17 @@ class AviaTicketsSearchResultsFragment: Fragment() {
             binding.clear.id -> binding.inputTo.text.clear()
             binding.showAllFlights.id -> Unit // TODO expand flights list
             binding.showAllTickets.id -> viewModel.openTickets()
+            binding.chipBackwardTicket.id -> DatePickerDialog(requireContext()).apply {
+                setOnDateSetListener { _, y, m, d ->
+                    Toast.makeText(requireContext(), "$d.$m.$y", Toast.LENGTH_SHORT).show()
+                }
+                show()
+            }
+            binding.chipDate.id -> DatePickerDialog(requireContext()).apply {
+                setOnDateSetListener { _, y, m, d -> viewModel.setFlightDate(d, m, y) }
+                show()
+            }
+            binding.chipPassengers.id -> Unit // TODO
         }
     }
 }
