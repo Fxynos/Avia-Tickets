@@ -120,6 +120,7 @@
 
         <TextView
             style="@style/Title1"
+            android:id="@+id/first_time_greeting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/screen_padding"

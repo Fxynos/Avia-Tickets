@@ -10,10 +10,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.FragmentOffersBinding
 import com.vl.aviatickets.ui.adapter.OffersAdapter
+import com.vl.aviatickets.ui.alertInvalidArrivalTown
+import com.vl.aviatickets.ui.alertInvalidDepartureTown
 import com.vl.aviatickets.ui.hideKeyboard
 import com.vl.aviatickets.ui.viewmodel.OffersViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,8 +39,12 @@ class AviaTicketsOffersFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (savedInstanceState == null)
-            binding.inputFrom.setText(viewModel.defaultDepartureTown)
+        binding.inputFrom.setText(viewModel.defaultDepartureTown)
+        binding.firstTimeGreeting.visibility =
+            if (viewModel.isFirstTime)
+                View.VISIBLE
+            else
+                View.GONE
 
         // when user has to enter arrival town, bottom sheet pops up
         binding.inputTo.setOnFocusChangeListener { _, hasFocus ->
@@ -58,15 +62,10 @@ class AviaTicketsOffersFragment: Fragment() {
                 launch { viewModel.validationResultEvents.collect {
                     when (it) {
                         is OffersViewModel.ValidationResult.InvalidTown ->
-                            MaterialAlertDialogBuilder(requireActivity())
-                                .setTitle(R.string.dialog_invalid_town_title)
-                                .setMessage(
-                                    if (it.isDepartureTown)
-                                        R.string.dialog_invalid_departure_town_message
-                                    else
-                                        R.string.dialog_invalid_arrival_town_message
-                                ).setNeutralButton(R.string.dialog_neutral_button, null)
-                                .show()
+                            if (it.isDepartureTown)
+                                alertInvalidDepartureTown()
+                            else
+                                alertInvalidArrivalTown()
 
                         is OffersViewModel.ValidationResult.NavigateToChoosingArrivalTown ->
                             showSearchBottomSheet(it.departureTown)
@@ -74,8 +73,8 @@ class AviaTicketsOffersFragment: Fragment() {
                         is OffersViewModel.ValidationResult.NavigateToSearch ->
                             findNavController().navigate(
                                 AviaTicketsOffersFragmentDirections.actionOffersSearchResults(
-                                    it.departureTown,
-                                    it.arrivalTown
+                                    it.route.departureTown,
+                                    it.route.arrivalTown
                                 )
                             )
                     }

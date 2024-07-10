@@ -3,6 +3,7 @@ package com.vl.aviatickets.ui.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vl.aviatickets.domain.entity.Route
 import com.vl.aviatickets.domain.manager.HistoryManager
 import com.vl.aviatickets.domain.manager.OffersManager
 import com.vl.aviatickets.ui.entity.OffersItem
@@ -30,6 +31,7 @@ class OffersViewModel @Inject constructor(
     private val historyManager: HistoryManager,
     offersManager: OffersManager
 ): ViewModel() {
+    val isFirstTime: Boolean get() = historyManager.lastDepartureTown == null
     val defaultDepartureTown: String get() = historyManager.lastDepartureTown ?: ""
     val recommendedArrivalTowns: List<String>
         get() = LinkedList(historyManager.lastArrivalTowns?.asReversed() ?: emptyList()).apply {
@@ -80,7 +82,10 @@ class OffersViewModel @Inject constructor(
         }
 
         historyManager.saveArrivalTown(town)
-        emitEvent(ValidationResult.NavigateToSearch(departureTown, town))
+        emitEvent(ValidationResult.NavigateToSearch(Route(
+            departureTown = departureTown,
+            arrivalTown = town
+        )))
     }
 
     private fun emitEvent(event: ValidationResult) {
@@ -90,6 +95,6 @@ class OffersViewModel @Inject constructor(
     sealed interface ValidationResult {
         data class InvalidTown(val isDepartureTown: Boolean): ValidationResult
         data class NavigateToChoosingArrivalTown(val departureTown: String): ValidationResult
-        data class NavigateToSearch(val departureTown: String, val arrivalTown: String): ValidationResult
+        data class NavigateToSearch(val route: Route): ValidationResult
     }
 }

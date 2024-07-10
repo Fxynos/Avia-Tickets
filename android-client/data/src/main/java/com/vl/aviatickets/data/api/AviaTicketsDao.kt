@@ -1,6 +1,6 @@
 package com.vl.aviatickets.data.api
 
-import com.vl.aviatickets.BuildConfig
+import com.vl.aviatickets.data.BuildConfig
 import com.vl.aviatickets.domain.boundary.TicketsRepository
 import com.vl.aviatickets.domain.boundary.OffersRepository
 import com.vl.aviatickets.domain.boundary.TicketsOffersRepository

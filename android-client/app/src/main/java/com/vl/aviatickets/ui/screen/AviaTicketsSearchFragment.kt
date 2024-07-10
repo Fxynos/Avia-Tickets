@@ -37,18 +37,23 @@ class AviaTicketsSearchFragment(
 
         binding.inputFrom.setText(departureTown)
 
-        listOf(
+        sequenceOf(
             binding.popularTitle1,
             binding.popularTitle2,
             binding.popularTitle3
-        ).zip(popularDestinations).forEach { it.first.text = it.second }
+        ).zip(
+            popularDestinations.asSequence()
+        ).forEach { it.first.text = it.second }
 
-        listOf(
+        sequenceOf(
             binding.optionComplexRoute,
             binding.optionAnywhere,
             binding.optionWeekend,
             binding.optionHotTickets,
-            binding.clear
+            binding.clear,
+            binding.popular1,
+            binding.popular2,
+            binding.popular3
         ).forEach { it.setOnClickListener(this::onClick) }
 
         // user returns to choosing departure town
@@ -103,6 +108,9 @@ class AviaTicketsSearchFragment(
             binding.clear.id -> {
                 binding.inputTo.text.clear()
             }
+            binding.popular1.id -> binding.inputTo.setText(binding.popularTitle1.text)
+            binding.popular2.id -> binding.inputTo.setText(binding.popularTitle2.text)
+            binding.popular3.id -> binding.inputTo.setText(binding.popularTitle3.text)
         }
     }
 }

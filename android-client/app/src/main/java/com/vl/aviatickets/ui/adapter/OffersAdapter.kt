@@ -7,8 +7,8 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.ItemOfferBinding
+import com.vl.aviatickets.ui.entity.Formatter
 import com.vl.aviatickets.ui.entity.OffersItem
-import okhttp3.internal.format
 
 class OffersAdapter: ListDelegationAdapter<List<OffersItem>>(
     loadingOffersAdapterDelegate,
@@ -49,11 +49,9 @@ private val loadedOffersAdapterDelegate: AdapterDelegate<List<OffersItem>>
             binding.image.load(offer.imageUrl) // TODO stop shimmer only after loading photo
             binding.name.text = offer.title
             binding.location.text = offer.town
-            binding.cost.text = context.getString(R.string.min_cost, StringBuilder().apply {
-                if (offer.price >= 1000) {
-                    append(offer.price / 1000)
-                    append(format(" %03d", offer.price % 1000))
-                } else append(offer.price)
-            }.toString())
+            binding.cost.text = context.getString(
+                R.string.min_price,
+                Formatter.formatPrice(item.offer.price)
+            )
         } }
     )

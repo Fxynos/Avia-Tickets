@@ -261,6 +261,7 @@
         <!-- First -->
 
         <LinearLayout
+            android:id="@+id/popular1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -312,6 +313,7 @@
         <!-- Second -->
 
         <LinearLayout
+            android:id="@+id/popular2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -363,6 +365,7 @@
         <!-- Third -->
 
         <LinearLayout
+            android:id="@+id/popular3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

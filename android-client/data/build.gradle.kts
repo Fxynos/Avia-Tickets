@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vl.aviatickets"
+    namespace = "com.vl.aviatickets.data"
     compileSdk = 34
 
     defaultConfig {
