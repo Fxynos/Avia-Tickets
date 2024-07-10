@@ -200,7 +200,9 @@ class AviaTicketsSearchResultsFragment: Fragment() {
                 setOnDateSetListener { _, y, m, d -> viewModel.setFlightDate(d, m, y) }
                 show()
             }
-            binding.chipPassengers.id -> Unit // TODO
+            binding.chipPassengers.id -> AviaTicketsPassengersDialogFragment { count, seats ->
+                viewModel.setPassengers(count, seats)
+            }.show(parentFragmentManager, null)
         }
     }
 }

@@ -37,4 +37,7 @@
     <string name="seats_class_premium">премиум</string>
     <string name="seats_class_business">бизнес</string>
     <string name="seats_class_first">первый класс</string>
+    <string name="dialog_passengers_title">Укажите пассажиров</string>
+    <string name="count">Количество:</string>
+    <string name="approve">Подтвердить</string>
 </resources>
