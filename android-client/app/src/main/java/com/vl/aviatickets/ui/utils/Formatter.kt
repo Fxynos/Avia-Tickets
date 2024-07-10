@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.util.Calendar
 import java.util.Locale
+import kotlin.math.round
 
 // TODO use string resources for all those beneath
 object Formatter {
@@ -26,7 +27,7 @@ object Formatter {
     }
 
     fun formatDuration(durationSec: Int, hasTransfer: Boolean): String {
-        val duration = "${durationSec / 60 / 30 / 2f}ч"
+        val duration = "${round(durationSec / 60f / 30) / 2f}ч"
         return if (hasTransfer) duration else "$duration / Без пересадок"
     }
 
