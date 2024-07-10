@@ -8,7 +8,7 @@ import android.view.inputmethod.EditorInfo
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vl.aviatickets.databinding.FragmentSearchBinding
-import com.vl.aviatickets.ui.hideKeyboard
+import com.vl.aviatickets.ui.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

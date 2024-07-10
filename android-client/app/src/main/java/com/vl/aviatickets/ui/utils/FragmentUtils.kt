@@ -1,4 +1,4 @@
-package com.vl.aviatickets.ui
+package com.vl.aviatickets.ui.utils
 
 import android.content.Context
 import android.view.inputmethod.InputMethodManager

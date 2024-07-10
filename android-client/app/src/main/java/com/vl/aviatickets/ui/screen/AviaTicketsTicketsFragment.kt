@@ -42,7 +42,7 @@ class AviaTicketsTicketsFragment: Fragment() {
             viewModel.initialize(
                 route = Route(getString("departureTown")!!, getString("arrivalTown")!!),
                 passengers = getInt("passengersCount").takeIf { it > 0 }!!,
-                date = getString("date")!!
+                dateTime = getString("date")!!
             )
         }
         binding.back.setOnClickListener { findNavController().navigateUp() }

@@ -8,7 +8,7 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.ItemTicketBinding
-import com.vl.aviatickets.ui.entity.Formatter
+import com.vl.aviatickets.ui.utils.Formatter
 import com.vl.aviatickets.ui.entity.TicketsItem
 
 class TicketsAdapter: ListDelegationAdapter<List<TicketsItem>>(
@@ -44,8 +44,10 @@ private val loadedTicketsAdapterDelegate: AdapterDelegate<List<TicketsItem>>
 
             binding.price.text = getString(R.string.price, Formatter.formatPrice(ticket.price))
 
-            binding.departureTime.text = Formatter.formatTime(ticket.departureTime)
-            binding.arrivalTime.text = Formatter.formatTime(ticket.arrivalTime)
+            binding.departureTime.text =
+                Formatter.formatUserTime(Formatter.parseUnixTime(ticket.departureTime))
+            binding.arrivalTime.text =
+                Formatter.formatUserTime(Formatter.parseUnixTime(ticket.arrivalTime))
             binding.duration.text = Formatter.formatDuration(
                 durationSec = (ticket.arrivalTime - ticket.departureTime).toInt(),
                 hasTransfer = ticket.hasTransfer

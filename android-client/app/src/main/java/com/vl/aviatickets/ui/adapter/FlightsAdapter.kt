@@ -9,7 +9,7 @@ import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.ItemFlightBinding
 import com.vl.aviatickets.ui.entity.FlightsItem
-import com.vl.aviatickets.ui.entity.Formatter
+import com.vl.aviatickets.ui.utils.Formatter
 
 class FlightsAdapter: ListDelegationAdapter<List<FlightsItem>>(
     loadingFlightsAdapterDelegate,
@@ -44,7 +44,7 @@ private val loadedFlightsAdapterDelegate: AdapterDelegate<List<FlightsItem>>
                 R.string.price,
                 Formatter.formatPrice(item.flight.price)
             )
-            binding.timetable.text = Formatter.formatTimeRange(item.flight.timeRange)
+            binding.timetable.text = item.flight.timeRange.joinToString(separator = " ")
             binding.indicator.imageTintList = ColorStateList.valueOf(getColor(
                 when (absoluteAdapterPosition % 3) {
                     0 -> R.color.red

@@ -1,4 +1,4 @@
-package com.vl.aviatickets.ui.entity
+package com.vl.aviatickets.ui.utils
 
 object Validator {
     fun isTownValid(town: String): Boolean =

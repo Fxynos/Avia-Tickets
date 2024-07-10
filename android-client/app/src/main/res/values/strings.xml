@@ -31,4 +31,10 @@
     <string name="dialog_invalid_arrival_town_message">Укажите город прибытия, используя только символы кириллицы</string>
     <string name="dialog_neutral_button">Окей</string>
     <string name="price">%1$s ₽</string>
+    <string name="flight_date">%1$s, %2$s</string>
+    <string name="passengers_count">%1$d, %2$s</string>
+    <string name="seats_class_economy">эконом</string>
+    <string name="seats_class_premium">премиум</string>
+    <string name="seats_class_business">бизнес</string>
+    <string name="seats_class_first">первый класс</string>
 </resources>

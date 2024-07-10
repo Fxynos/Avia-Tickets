@@ -12,9 +12,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.vl.aviatickets.databinding.FragmentOffersBinding
 import com.vl.aviatickets.ui.adapter.OffersAdapter
-import com.vl.aviatickets.ui.alertInvalidArrivalTown
-import com.vl.aviatickets.ui.alertInvalidDepartureTown
-import com.vl.aviatickets.ui.hideKeyboard
+import com.vl.aviatickets.ui.utils.alertInvalidArrivalTown
+import com.vl.aviatickets.ui.utils.alertInvalidDepartureTown
+import com.vl.aviatickets.ui.utils.hideKeyboard
 import com.vl.aviatickets.ui.viewmodel.OffersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

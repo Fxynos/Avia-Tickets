@@ -7,7 +7,7 @@ import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.ItemOfferBinding
-import com.vl.aviatickets.ui.entity.Formatter
+import com.vl.aviatickets.ui.utils.Formatter
 import com.vl.aviatickets.ui.entity.OffersItem
 
 class OffersAdapter: ListDelegationAdapter<List<OffersItem>>(

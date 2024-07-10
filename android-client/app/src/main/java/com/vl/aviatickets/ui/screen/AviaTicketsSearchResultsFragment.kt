@@ -2,11 +2,16 @@ package com.vl.aviatickets.ui.screen
 
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.inputmethod.EditorInfo
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,12 +19,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.vl.aviatickets.R
 import com.vl.aviatickets.databinding.FragmentSearchResultsBinding
 import com.vl.aviatickets.domain.entity.Route
 import com.vl.aviatickets.ui.adapter.FlightsAdapter
-import com.vl.aviatickets.ui.alertInvalidArrivalTown
-import com.vl.aviatickets.ui.alertInvalidDepartureTown
-import com.vl.aviatickets.ui.hideKeyboard
+import com.vl.aviatickets.ui.utils.alertInvalidArrivalTown
+import com.vl.aviatickets.ui.utils.alertInvalidDepartureTown
+import com.vl.aviatickets.ui.utils.hideKeyboard
 import com.vl.aviatickets.ui.viewmodel.SearchResultsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -112,10 +118,25 @@ class AviaTicketsSearchResultsFragment: Fragment() {
     }
 
     private fun updateState(state: SearchResultsViewModel.UiState) {
-        sequenceOf(binding.inputTo, binding.swap, binding.clear).forEach {
-            it.isEnabled = !state.isSearching
-        }
         binding.showAllTickets.isEnabled = state.isRouteValid
+
+        binding.chipDateTitle.text = SpannableStringBuilder(
+            getString(R.string.flight_date, state.date, state.dayOfWeek)
+        ).apply {
+            setSpan(
+                ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.grey_6)),
+                state.date.length,
+                state.date.length + state.dayOfWeek.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
+
+        binding.chipPassengersTitle.text = getString(
+            R.string.passengers_count,
+            state.passengers,
+            getString(state.seats.title)
+        )
+
         adapter.items = state.flights
     }
 

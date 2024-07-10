@@ -7,7 +7,7 @@ import com.vl.aviatickets.domain.entity.Route
 import com.vl.aviatickets.domain.manager.HistoryManager
 import com.vl.aviatickets.domain.manager.OffersManager
 import com.vl.aviatickets.ui.entity.OffersItem
-import com.vl.aviatickets.ui.entity.Validator
+import com.vl.aviatickets.ui.utils.Validator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
